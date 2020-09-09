@@ -4,10 +4,19 @@
 // выполненых задач содержатся как свойства объекта в формате "имя": "кол-во задач".
 
 const findBestEmployee = function (employees) {
-  const values = Object.values(employees);
-  const keys = Object.keys(employees);
-  const maxValue = Math.max(...values);
-  return keys[values.indexOf(maxValue)];
+  // const workResult = Object.values(employees);
+  // const nameEmpl = Object.keys(employees);
+  // let bestEmpl = nameEmpl[workResult.indexOf(Math.max(...workResult))];
+  // return bestEmpl;
+  let maxResult = Object.values(employees)[0];
+  let nameEmpl = Object.keys(employees)[0];
+  for (const key in employees) {
+    if (maxResult <= employees[key]) {
+      maxResult = employees[key];
+      nameEmpl = key;
+    }
+  }
+  return nameEmpl;
 };
 /*
  * Вызовы функции для проверки работоспособности твоей реализации.
